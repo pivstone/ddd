@@ -5,7 +5,9 @@ services:
    image: daocloud.io/library/elasticsearch:5.4.2-alpine
    restart: always
    environment:
-     - "discovery.type=single-node"
+     - discovery.type=single-node
+     - bootstrap.memory_lock=true
+     - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
    volumes:
      - ./data:/usr/share/elasticsearch/data
 
