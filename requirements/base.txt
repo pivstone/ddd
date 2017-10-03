@@ -1,0 +1,6 @@
+django==1.11.5
+pytz==2017.2
+django-filter==1.0.4
+djangorestframework==3.6.4
+elasticsearch==5.4.0
+

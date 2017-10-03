@@ -101,3 +101,7 @@ ENV/
 .mypy_cache/
 
 data/
+
+.idea/
+
+mydatabase
