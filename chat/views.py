@@ -15,8 +15,8 @@ LOG = logging.getLogger(__name__)
 def receiver(request):
     body = six.text_type(request.body)
     query_string = six.text_type(body)
-    if query_string.startswith("b"):
-        query_string = query_string[1:]
+    if query_string.startswith("b'"):
+        query_string = query_string[2:]
     data = dict(urllib.parse.parse_qsl(query_string))
     LOG.info(data)
     if "Event" in data:

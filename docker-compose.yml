@@ -13,6 +13,7 @@ services:
      - /srv/ddd/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
 
   app:
+   name: chat
    build: .
    restart: always
    ports:
