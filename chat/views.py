@@ -20,6 +20,6 @@ def receiver(request):
     data = dict(urllib.parse.parse_qsl(query_string))
     LOG.info(data)
     if "Event" in data:
-        del data['Event']
-        settings.ES.index(index=settings.INDEX_NAME, doc_type=data["Event"], body=data)
+        doc_type = data.pop('Event')
+        settings.ES.index(index=settings.INDEX_NAME, doc_type=doc_type, body=data)
     return HttpResponse()
