@@ -16,5 +16,6 @@ def receiver(request):
     body = six.text_type(request.body)
     data = dict(urllib.parse.parse_qsl(six.text_type(body)))
     LOG.info(data)
-    settings.ES.index(index=settings.INDEX_NAME, doc_type=data["b'Event"], body=data)
+    if "b'Event" in data:
+        settings.ES.index(index=settings.INDEX_NAME, doc_type=data["b'Event"], body=data)
     return HttpResponse()
