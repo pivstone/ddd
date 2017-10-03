@@ -1,0 +1,11 @@
+*.md
+bin/
+lib/
+include/
+tmp/
+data/
+docs/
+env/
+test/
+pip-selfcheck.json
+.DS_Store
