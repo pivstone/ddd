@@ -13,5 +13,5 @@ LOG = logging.getLogger(__name__)
 
 def receiver(request):
     print ("===" + six.text_type(request.body))
-    settings.ES.index(index=settings.INDEX_NAME, doc_type=settings.INDEX_NAME, body=request.body)
+    #settings.ES.index(index=settings.INDEX_NAME, doc_type=settings.INDEX_NAME, body=request.body)
     return HttpResponse()
