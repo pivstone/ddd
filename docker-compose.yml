@@ -10,6 +10,7 @@ services:
      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
    volumes:
      - data:/usr/share/elasticsearch/data
+     - /srv/ddd/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
 
   app:
    build: .
