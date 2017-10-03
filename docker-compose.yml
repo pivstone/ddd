@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  es:
+   image: daocloud.io/library/elasticsearch:5.4.2-alpine
+   restart: always
+   environment:
+     - "discovery.type=single-node"
+   volumes:
+     - ./data:/usr/share/elasticsearch/data
+
+  app:
+   build: .
+   restart: always
+   ports:
+      - "8000:8000"
+   depends_on:
+    - es
+   command: python manage.py runserver 0.0.0.0:8000
