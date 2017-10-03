@@ -14,8 +14,12 @@ LOG = logging.getLogger(__name__)
 
 def receiver(request):
     body = six.text_type(request.body)
-    data = dict(urllib.parse.parse_qsl(six.text_type(body)))
+    query_string = six.text_type(body)
+    if query_string.startswith("b"):
+        query_string = query_string[1:]
+    data = dict(urllib.parse.parse_qsl(query_string))
     LOG.info(data)
-    if "b'Event" in data:
-        settings.ES.index(index=settings.INDEX_NAME, doc_type=data["b'Event"], body=data)
+    if "Event" in data:
+        del data['Event']
+        settings.ES.index(index=settings.INDEX_NAME, doc_type=data["Event"], body=data)
     return HttpResponse()
