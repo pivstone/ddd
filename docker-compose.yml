@@ -9,7 +9,7 @@ services:
      - bootstrap.memory_lock=true
      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
    volumes:
-     - ./data:/usr/share/elasticsearch/data
+     - data:/usr/share/elasticsearch/data
 
   app:
    build: .
@@ -19,3 +19,11 @@ services:
    depends_on:
     - es
    command: python manage.py runserver 0.0.0.0:8000
+
+volumes:
+  data:
+    driver_opts:
+        type: none
+        device: /srv/ddd/data
+        o: bind
+    driver: local
