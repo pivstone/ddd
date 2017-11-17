@@ -19,6 +19,7 @@ services:
       - "8000:8000"
    depends_on:
     - es
+    - redis
    command: python manage.py runserver 0.0.0.0:8000
 
   frp:
@@ -31,6 +32,9 @@ services:
       - "7500:7500"
     volumes:
       - /etc/frp/frps.ini:/frps.ini
+
+  redis:
+    image: daocloud.io/library/redis
 
 volumes:
   data:
