@@ -92,11 +92,11 @@ def save(data):
         doc_type = temp_data.pop('Event')
         settings.ES.index(index=settings.INDEX_NAME, doc_type=doc_type, body=temp_data)
 
-
+@api_view(http_method_names=['POST'])
 def watch(request):
     data = request.POST
     LOG.info(data)
-    #save(data)
+    save(data)
     if data['Event'] in ("ClusterIM", "TempSessionIM", "NormalIM",):
         # 处理消息
         message = data['Message']
