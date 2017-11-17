@@ -31,7 +31,7 @@ services:
       - "7500:7500"
     volumes:
       - /etc/frp/frps.ini:/conf/frps.ini
-    command: ./frps -c ./conf/frps.ini
+    command: frps -c /conf/frps.ini
 
 volumes:
   data:
