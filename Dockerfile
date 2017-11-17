@@ -8,4 +8,4 @@ COPY . /srv/ddd/
 WORKDIR /srv/ddd/
 
 # CMD python3 manage.py migrate && gunicorn -b 0.0.0.0:80 qing.wsgi
-CMD python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:80
+CMD python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000
