@@ -8,6 +8,7 @@ import logging
 from django.core.cache import cache
 from django.http import HttpResponse, Http404
 from django.utils.encoding import python_2_unicode_compatible
+from rest_framework.decorators import api_view
 
 from chat import handlers
 from chat.handlers import AbstractHandler
