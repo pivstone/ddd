@@ -21,6 +21,17 @@ services:
     - es
    command: python manage.py runserver 0.0.0.0:8000
 
+  frp:
+    build: /srv/frp/
+    restart: always
+    ports:
+      - "1080:80"
+      - "6000:6000"
+      - "7000:7000"
+      - "7500:7500"
+    volumes:
+      - /etc/frp/frps.ini:/frps.ini
+
 volumes:
   data:
     driver_opts:
