@@ -29,7 +29,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.contenttypes',
     'chat',
     'django.contrib.auth',
     'django.contrib.contenttypes',
