@@ -96,7 +96,7 @@ def save(data):
 def watch(request):
     data = request.POST
     LOG.info(data)
-    save(data)
+    #save(data)
     if data['Event'] in ("ClusterIM", "TempSessionIM", "NormalIM",):
         # 处理消息
         message = data['Message']
