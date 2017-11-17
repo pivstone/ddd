@@ -31,6 +31,9 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'chat',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -136,7 +139,6 @@ from elasticsearch import Elasticsearch
 
 ES = Elasticsearch(host="es")
 INDEX_NAME = 'chat'
-
 
 CACHES = {
     "default": {
