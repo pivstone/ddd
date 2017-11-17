@@ -12,6 +12,9 @@ services:
      - data:/usr/share/elasticsearch/data
      - /srv/ddd/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
 
+  redis:
+    image: redis
+
   app:
    build: .
    restart: always
@@ -33,8 +36,6 @@ services:
     volumes:
       - /etc/frp/frps.ini:/frps.ini
 
-  redis:
-    image: redis
 
 volumes:
   data:
