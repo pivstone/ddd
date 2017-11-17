@@ -18,5 +18,5 @@ from django.conf.urls import url
 from chat import views as chat_views
 
 urlpatterns = [
-    url(r'^receiver/', chat_views.receiver),
+    url(r'^receiver/', chat_views.watch),
 ]
