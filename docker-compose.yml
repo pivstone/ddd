@@ -30,7 +30,7 @@ services:
       - "7000:7000"
       - "7500:7500"
     volumes:
-      - /etc/frp/frps.ini:/frps.ini
+      - /etc/frp/frps.ini:frps.ini
 
 volumes:
   data:
