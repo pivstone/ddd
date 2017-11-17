@@ -137,13 +137,3 @@ from elasticsearch import Elasticsearch
 ES = Elasticsearch(host="es")
 INDEX_NAME = 'chat'
 
-
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://redis:6379/1",
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        }
-    }
-}
