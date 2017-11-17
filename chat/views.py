@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import copy
 import inspect
 import logging
 
@@ -85,12 +86,17 @@ for clz in class_members:
 context = ContextManger()
 
 
+def save(data):
+    temp_data = copy.copy(data)
+    if "Event" in temp_data:
+        doc_type = temp_data.pop('Event')
+        settings.ES.index(index=settings.INDEX_NAME, doc_type=doc_type, body=temp_data)
+
+
 def watch(request):
     data = request.POST
     LOG.info(data)
-    if "Event" in data:
-        doc_type = data.pop('Event')
-        settings.ES.index(index=settings.INDEX_NAME, doc_type=doc_type, body=data)
+    save(data)
     if data['Event'] in ("ClusterIM", "TempSessionIM", "NormalIM",):
         # 处理消息
         message = data['Message']

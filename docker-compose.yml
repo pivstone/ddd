@@ -34,7 +34,7 @@ services:
       - /etc/frp/frps.ini:/frps.ini
 
   redis:
-    image: daocloud.io/library/redis
+    image: redis
 
 volumes:
   data:
